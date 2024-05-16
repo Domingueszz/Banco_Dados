@@ -236,13 +236,11 @@ FROM alunos FULL JOIN matriculas ON alunos.cpf = matriculas.cpf
             FULL JOIN disciplinas ON matriculas_disciplinas.id_disciplinas = disciplinas.id_disciplina
 WHERE disciplinas.nome_disciplina = 'Engenharia I';
 
-7) SELECT alunos.nome_aluno, matriculas.status
-FROM alunos FULL JOIN matriculas ON alunos.cpf = matriculas.cpf
-WHERE matriculas.status = 'Formado'
+7) SELECT alunos.nome_aluno, matriculas.status FROM matriculas NATURAL INNER JOIN alunos
+WHERE status = 'Formado'
 
-8) SELECT alunos.nome_aluno, matriculas.status
-FROM alunos FULL JOIN matriculas ON alunos.cpf = matriculas.cpf
-WHERE matriculas.status = 'Ativo'
+8) SELECT alunos.nome_aluno, matriculas.status FROM matriculas NATURAL INNER JOIN alunos
+WHERE status = 'Ativo'
 
 9) SELECT cursos.nome_curso, COUNT(alunos.cpf) AS quantidade_alunos_ativos
 FROM alunos FULL JOIN matriculas ON alunos.cpf = matriculas.cpf
